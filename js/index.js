@@ -40,3 +40,83 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//Fill nav elements
+const a_tags = window.document.querySelectorAll('a');
+console.log(a_tags.length);
+function fillNavItems(arr){
+  for (let i=0;i< 6;i++){
+    a_tags[i].textContent = arr['nav']['nav-item-'+[i +1]];
+ 
+  }
+}
+fillNavItems(siteContent);
+
+//Fill headline
+const headline = document.querySelector('h1');
+headline.textContent = siteContent['cta']['h1'];
+
+//Fill cta-image
+const ctaImg = document.querySelector('#cta-img');
+ctaImg.setAttribute('src',siteContent['cta']['img-src']);
+
+//cta button
+const ctaBtn = document.querySelector('button');
+ctaBtn.textContent = siteContent['cta']['button'];
+
+//features h4 p
+function modify_text(selector,contentSection,contentItem,elementNum){
+  const myElement = document.querySelectorAll(selector);
+  console.log(myElement);
+  myElement[elementNum].textContent = siteContent[contentSection][contentItem];
+  
+}
+modify_text(".top-content .text-content h4","main-content","features-h4",0);
+modify_text(".top-content .text-content p","main-content","features-content",0);
+
+//about h4 p
+modify_text(".top-content .text-content p","main-content","about-content",1);
+modify_text(".top-content .text-content h4","main-content","about-h4",1);
+
+//middle img
+const midImg = document.querySelector('#middle-img');
+midImg.setAttribute('src',siteContent['main-content']['middle-img-src']);
+
+//bottom-content
+modify_text(".bottom-content .text-content p","main-content","services-content",0);
+modify_text(".bottom-content .text-content h4","main-content","services-h4",0);
+
+modify_text(".bottom-content .text-content p","main-content","services-content",1);
+modify_text(".bottom-content .text-content h4","main-content","services-h4",1);
+
+modify_text(".bottom-content .text-content p","main-content","services-content",2);
+modify_text(".bottom-content .text-content h4","main-content","services-h4",2);
+
+//contact
+
+modify_text(".contact h4","contact","contact-h4",0);
+modify_text(".contact p","contact","address",0);
+modify_text(".contact p","contact","phone",1);
+modify_text(".contact p","contact","email",2);
+
+//footer
+modify_text("footer p","footer","copyright",0);
+
+//new nav items
+const help = document.createElement('a');
+const random = document.createElement('a');
+
+help.textContent = "Help";
+random.textContent = 'Random';
+
+const children = [help,random];
+const navigation = document.querySelector('nav');
+navigation.append(...children);
+
+
+//nav item color
+
+const myElementColor = document.querySelectorAll("nav a");
+myElementColor.forEach(currentValue => currentValue.style.color = 'green');
+
+
