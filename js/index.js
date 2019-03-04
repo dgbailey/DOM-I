@@ -120,3 +120,31 @@ const myElementColor = document.querySelectorAll("nav a");
 myElementColor.forEach(currentValue => currentValue.style.color = 'green');
 
 
+//EventListener
+function nV(){
+  let doc = document.querySelector('body');
+
+
+  doc.style.backgroundColor = 'black';
+  doc.style.color = 'green';
+  
+}
+
+function rV(){
+  let doc = document.querySelector('body');
+
+  doc.style.backgroundColor = 'white';
+  doc.style.color = 'black';
+  
+}
+
+function toggleV(){
+  let doc = document.querySelector('body');
+  if(doc.style.backgroundColor === 'black'){
+    rV();}
+  else{
+    nV();
+  }
+}
+const nightVision = document.querySelector('button');
+nightVision.addEventListener('click',toggleV);
